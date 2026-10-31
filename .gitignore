@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.output/
+.wrangler/
+.tanstack/
+.dev.vars*
+.env*
+!.env.example
+.impeccable/
+.DS_Store
+research/assets/
