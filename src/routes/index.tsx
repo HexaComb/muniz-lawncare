@@ -31,6 +31,7 @@ const nav = [
   { label: "Our story", id: "story" },
   { label: "How it works", id: "process" },
   { label: "Reviews", id: "reviews" },
+  { label: "Lawn care FAQs", id: "faq" },
 ];
 
 function Instagram({ size = 20 }: { size?: number }) {
@@ -218,7 +219,7 @@ function Hero() {
       </div>
       <div className="hero-meta wrap">
         <span>
-          <MapPin size={14} /> Patterson, California & surrounding communities
+          <MapPin size={14} /> Lawn care in Patterson, CA & surrounding communities
         </span>
         <button
           onClick={toggle}
@@ -300,14 +301,14 @@ function Services() {
       <LawnAccent clippings />
       <div className="section-intro">
         <h2>
-          Raise the standard.
+          Lawn care in Patterson.
           <br />
           Reclaim your outdoors.
         </h2>
         <p>
-          From a consistently crisp lawn to a complete yard refresh, give your
-          property the attention it deserves. We handle the details. You enjoy
-          the difference.
+          Weekly or biweekly lawn maintenance, yard improvements, and care for
+          every season. From summer irrigation to fall cleanups, we handle the
+          details so you can come home proud.
         </p>
       </div>
       <div className="service-features">
@@ -373,16 +374,24 @@ function Services() {
             text: "Weekly or biweekly mowing, edging and blowing, with seasonal attention to the way your lawn grows.",
           },
           {
-            name: "Fertilizing & weed control",
-            text: "Seasonal fertilizer applications and weed management to help your grass grow strong and keep garden beds looking cared for.",
+            name: "Fertilizing & pre-emergent weed control",
+            text: "Seasonal fertilizer and pre-emergent applications, with timing based on your lawn and the weeds being managed. Ask about spring lawn care and a plan for the rest of the year.",
           },
           {
-            name: "Sod, mulch & yard cleanups",
-            text: "Fresh sod, refreshed beds, pruning and cleanup with debris hauling. Tell us what you have in mind for your outdoor space.",
+            name: "Sod, mulch & flower bed rotations",
+            text: "Refresh your yard with sod, mulch, pruning and seasonal flower bed rotations. Spring is a chance to bring new color to your beds; cleanups and debris hauling help finish the job.",
           },
           {
-            name: "Sprinkler repair",
-            text: "Help for the irrigation that keeps your landscape growing. We’ll take a look at the problem and discuss the repairs your yard needs.",
+            name: "Summer irrigation & sprinkler repair",
+            text: "Help for the irrigation that keeps your landscape growing through summer. Tell us about dry patches, uneven watering or a broken sprinkler, and we’ll discuss the repairs your yard needs.",
+          },
+          {
+            name: "Fall leaf & gutter cleanups",
+            text: "Come home to a yard ready for fall. Leaf removal, yard cleanup and gutter cleaning help you stay ahead of seasonal buildup. Tell us which areas of your property need attention.",
+          },
+          {
+            name: "Irrigation system winterizing",
+            text: "Prepare your irrigation system for colder weather. Ask about winterizing ahead of expected freezes; the right preparation depends on your system and local conditions.",
           },
         ].map((s) => (
           <details key={s.name}>
@@ -661,6 +670,60 @@ function Reviews() {
   );
 }
 
+function LawnCareFaq() {
+  const questions = [
+    {
+      question: "What is included in recurring lawn maintenance?",
+      answer:
+        "Our weekly or biweekly mowing service includes mowing, edging and blowing. Fertilizing, weed control and seasonal projects can be discussed with your estimate so you know which work is included.",
+    },
+    {
+      question: "How do I know if my sprinklers need attention in summer?",
+      answer:
+        "Uneven spray, dry patches and visible leaks are reasons to check your irrigation system. Dry grass can have more than one cause, so tell us what you’re noticing before simply increasing watering. We can discuss sprinkler repair for your property.",
+    },
+    {
+      question: "When should I plan fall cleanup and irrigation winterizing?",
+      answer:
+        "Plan leaf and gutter cleanup as debris builds up in fall, particularly ahead of rainy weather. Discuss irrigation winterizing before expected freezes rather than waiting for a calendar date. Preparation varies with local weather and your system.",
+    },
+    {
+      question: "When is the right time for pre-emergent weed control?",
+      answer:
+        "Pre-emergent treatments target weeds before they emerge. Timing depends on the weeds, lawn type and conditions, so treatment is not limited to spring. Tell us about your lawn and any reseeding plans so we can discuss suitable timing alongside fertilizing and flower bed care.",
+    },
+  ];
+  return (
+    <section id="faq" className="lawn-faq section wrap" aria-labelledby="faq-title">
+      <div className="section-intro">
+        <h2 id="faq-title">
+          A little lawn care
+          <br />
+          know-how.
+        </h2>
+        <p>
+          Planning care for your Patterson yard? Start with these common
+          questions, then tell us what your property needs.
+        </p>
+      </div>
+      <div className="service-details">
+        {questions.map(({ question, answer }) => (
+          <details key={question}>
+            <summary>
+              {question}
+              <Plus size={21} />
+            </summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+      <a className="text-link faq-contact" href="#contact">
+        Ask about care for my yard <ArrowUpRight size={18} />
+      </a>
+    </section>
+  );
+}
+
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -695,8 +758,8 @@ function Contact() {
           </p>
         </div>
         <div className="form-panel">
-          <h3>Start your yard’s next chapter.</h3>
-          <p>Tell us what you have in mind. Request your estimate below.</p>
+          <h3>Request a lawn care estimate.</h3>
+          <p>Tell Muniz Lawn Care about your property and the service you need.</p>
           <form onSubmit={submit}>
             <div className="form-row">
               <label>
@@ -751,9 +814,11 @@ function Contact() {
                   </option>
                   <option>Recurring lawn care</option>
                   <option>Yard cleanup or transformation</option>
-                  <option>Fertilizing & weed control</option>
-                  <option>Sod & mulch</option>
-                  <option>Sprinkler repair</option>
+                  <option>Fertilizing & pre-emergent weed control</option>
+                  <option>Sod, mulch & flower bed rotations</option>
+                  <option>Irrigation & sprinkler repair</option>
+                  <option>Leaf & gutter cleanups</option>
+                  <option>Irrigation system winterizing</option>
                   <option>A little of everything</option>
                 </select>
                 <ChevronDown size={18} />
@@ -816,6 +881,7 @@ function Home() {
         <Process />
         <Areas />
         <Reviews />
+        <LawnCareFaq />
         <Contact />
       </main>
       <a
@@ -843,6 +909,10 @@ function Home() {
         <div className="footer-bottom">
           <span>© 2026 Muniz Lawn Care & Maintenance LLC</span>
           <span>Patterson, California</span>
+          <a href={phone} aria-label="Call Muniz Lawn Care at (209) 202-8558">
+            (209) 202-8558
+          </a>
+          <a href="#contact">Contact Muniz Lawn Care</a>
           <a href="#">
             Back to top <ArrowRight size={14} />
           </a>
