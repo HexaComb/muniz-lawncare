@@ -584,6 +584,12 @@ em {
   color: var(--muted);
   max-width: 65ch;
 }
+.lawn-faq {
+  border-top: 1px solid var(--line);
+}
+.faq-contact {
+  margin-top: 28px;
+}
 .story {
   background: var(--forest);
   color: var(--paper);
@@ -957,6 +963,7 @@ form .button {
   align-items: center;
 }
 .footer-bottom {
+  flex-wrap: wrap;
   border-top: 1px solid var(--line);
   padding-top: 24px;
   display: flex;

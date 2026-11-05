@@ -13,11 +13,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Muniz Lawn Care | Come home proud." },
+      { title: "Lawn Care in Patterson, CA | Muniz Lawn Care" },
       {
         name: "description",
         content:
-          "Lawn care, yard improvements and sprinkler repair in Patterson and surrounding communities. Meet Rodrigo and the Muniz Lawn Care team. Request an estimate.",
+          "Lawn care in Patterson, CA, from mowing and sprinkler repair to seasonal leaf cleanups, flower bed rotations and weed control. Request a Muniz Lawn Care estimate.",
       },
       { name: "theme-color", content: "#203a2b" },
       { name: "robots", content: "noindex, nofollow" },
